@@ -1,6 +1,6 @@
-.pem
-.key
-.class
-.jar
+*.pem
+*.key
+*.class
+*.jar
 
 
