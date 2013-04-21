@@ -5,4 +5,12 @@
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
 
+    <!-- Colours -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="light_gray">#333333</color>
+    <color name="dark_gray">#80797C</color>
+
+    <string name="title_activity_detail">DetailActivity</string>
+
 </resources>

@@ -1,7 +1,8 @@
 package org.codexplosion.rs3;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.app.Fragment;
+import android.os.Bundle;
 import android.view.Menu;
 
 public class MainActivity extends Activity {
@@ -10,7 +11,6 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		setTitle("");
 	}
 
 	@Override
@@ -19,5 +19,4 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
-
 }
