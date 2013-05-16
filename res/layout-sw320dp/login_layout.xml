@@ -1,64 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/app_name"
-        android:textSize="72sp" />
+            android:id="@+id/rs3Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/app_name"
+            android:textSize="72sp"/>
 
     <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:contentDescription="@string/app_name"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView1"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/textView1"
-        android:layout_marginLeft="20dp"
-        android:layout_toRightOf="@+id/textView1"
-        android:src="@drawable/ic_launcher" />
+            android:id="@+id/logoImage"
+            android:layout_width="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/rs3Title"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/rs3Title"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/rs3Title"
+            android:src="@drawable/ic_launcher"/>
 
     <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:hint="@string/email"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/textView1"
-        android:layout_marginTop="62dp"
-        android:ems="10"
-        android:inputType="textEmailAddress" >
+            android:id="@+id/emailText"
+            android:layout_width="wrap_content"
+            android:hint="@string/email"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/rs3Title"
+            android:layout_marginTop="62dp"
+            android:ems="10"
+            android:inputType="textEmailAddress">
 
-        <requestFocus />
+        <requestFocus/>
     </EditText>
 
     <EditText
-        android:id="@+id/editText2"
-        android:hint="@string/password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/editText1"
-        android:ems="10"
-        android:inputType="textPassword" />
+            android:id="@+id/passwordText"
+            android:hint="@string/password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/emailText"
+            android:ems="10"
+            android:inputType="textPassword"/>
 
     <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editText2"
-        android:layout_centerHorizontal="true"
-        android:text="@string/login" />
+            android:id="@+id/loginButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/passwordText"
+            android:layout_centerHorizontal="true"
+            android:text="@string/login"/>
 
 </RelativeLayout>
