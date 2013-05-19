@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class FeedAdapter extends ArrayAdapter<Feed> {
@@ -28,16 +29,22 @@ public class FeedAdapter extends ArrayAdapter<Feed> {
 			view = LayoutInflater.from(getContext()).inflate(R.layout.feed_list_layout, null);
 		}
 		Feed feed = getItem(position);
-		if(feed != null) {
-			if (feed.selected()) {
-				view.setBackgroundColor(getContext().getResources().getColor(R.color.light_gray));
-			} else {
-				view.setBackgroundColor(getContext().getResources().getColor(R.color.white));	
-			}
+        view.setBackgroundColor(getContext().getResources().getColor(R.color.white));
+        if(feed != null) {
+			ImageView image = (ImageView) view.findViewById(R.id.unreadImageView);
+            TextView numUnread = (TextView) view.findViewById(R.id.unreadTextView);
+
+            if(feed.containsUnread()) {
+                image.setImageDrawable(view.getResources().getDrawable(R.drawable.unread));
+                numUnread.setText(String.valueOf(feed.getUnreadCount()));
+            } else {
+                image.setImageDrawable(view.getResources().getDrawable(R.drawable.no_unread));
+            }
+
 			TextView title = (TextView) view.findViewById(R.id.feedTitle);
-			title.setText(feed.title);
+			title.setText(feed.getTitle());
 			TextView desc = (TextView) view.findViewById(R.id.feedDesc);
-			desc.setText(feed.Description);
+			desc.setText(feed.getDescription());
 		}
 		return view;
 	}

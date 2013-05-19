@@ -9,5 +9,7 @@
     <string name="login">Login</string>
 
     <string name="title_activity_detail">Items</string>
+    <string name="feeds">Your Feeds:</string>
+    <string name="zero">0</string>
 
 </resources>

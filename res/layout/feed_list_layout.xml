@@ -1,24 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="5dp"
     android:background="@color/white" >
 
     <TextView
         android:id="@+id/feedTitle"
-        android:layout_width="fill_parent"
+        android:layout_width="155dp"
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:textSize="25sp"
-        android:textColor="@color/black" />
-    
-    <TextView 
+        android:textColor="@color/black" android:layout_gravity="left|center_vertical"
+        android:layout_toLeftOf="@+id/unreadImageView" android:layout_alignParentLeft="true"/>
+
+    <ImageView
+            android:id="@+id/unreadImageView"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/no_unread"
+            android:layout_gravity="center_vertical"
+            android:layout_alignParentRight="true" android:layout_alignBottom="@+id/feedDesc"
+            android:layout_alignParentTop="true"/>
+
+    <TextView
         android:id="@+id/feedDesc"
         android:textColor="@color/dark_gray"
-        android:layout_width="fill_parent"
+        android:layout_width="116dp"
         android:layout_height="wrap_content"
         android:textSize="15sp"
-        android:padding="10dp"/>
+        android:padding="10dp" android:layout_below="@+id/feedTitle" android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/unreadImageView"/>
 
-</LinearLayout>
+    <TextView
+            android:id="@+id/unreadTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:layout_alignBottom="@+id/unreadImageView"
+            android:layout_alignTop="@+id/unreadTextView"
+            android:layout_alignLeft="@id/unreadImageView"
+            android:layout_alignRight="@id/unreadImageView"/>
+
+</RelativeLayout>

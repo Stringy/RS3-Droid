@@ -27,7 +27,7 @@ public class FeedItemDetailFragment extends ListFragment {
         if (savedInstanceState != null) {
             Feed feed = (Feed) savedInstanceState.get(FeedFragment.FEED);
             if (feed != null) {
-                setItems(feed.items);
+                setItems(feed.getItems());
             }
         }
         setListAdapter(adapter);
@@ -35,7 +35,7 @@ public class FeedItemDetailFragment extends ListFragment {
     }
 
     public void updateItems(Feed feed) {
-        setItems(feed.items);
+        setItems(feed.getItems());
         adapter.notifyDataSetChanged();
     }
 
@@ -50,15 +50,15 @@ public class FeedItemDetailFragment extends ListFragment {
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                adapter.notifyDataSetChanged();
                 Intent intent = new Intent(getActivity(),
                         WebViewActivity.class);
                 Bundle bundle = new Bundle();
                 Item item = (Item) getListView().getItemAtPosition(i);
-                bundle.putSerializable("URL", item.link);
+                item.setRead(true);
+                adapter.notifyDataSetChanged();
+                bundle.putSerializable("URL", item.getLink());
                 intent.putExtras(bundle);
                 startActivity(intent);
-                return;
             }
         });
     }

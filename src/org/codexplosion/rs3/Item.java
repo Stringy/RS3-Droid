@@ -5,12 +5,12 @@ import java.util.Date;
 
 public class Item implements Serializable {
 	private static final long serialVersionUID = 1L;
-	public String title;
-	public String content;
-	public String link;
-	public Date date;
-	public String ID;
-	public boolean read;
+	private String title;
+	private String content;
+	private String link;
+	private Date date;
+	private String ID;
+	private boolean read;
 	
 	public Item(String title, String content, String link, Date date, String id, boolean read) {
 		this.title = title;
@@ -20,4 +20,32 @@ public class Item implements Serializable {
 		this.ID = id;
 		this.read = read;
 	}
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public String getLink(){
+        return link;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public boolean isRead() {
+        return read;
+    }
+
+    public void setRead(boolean val) {
+        this.read = val;
+    }
 }
