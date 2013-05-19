@@ -1,20 +1,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/fragments_container"
-    tools:context=".MainActivity" >
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:id="@+id/fragments_container"
+              android:padding="25dp"
+              tools:context=".MainActivity">
 
     <fragment
-        android:id="@+id/feedItemFrag"
-        android:layout_width="202dp"
-        android:layout_height="match_parent"
-        class="org.codexplosion.rs3.FeedFragment" />
+            android:id="@+id/feedItemFrag"
+            android:layout_width="202dp"
+            android:layout_height="match_parent"
+            class="org.codexplosion.rs3.FeedFragment"/>
 
+    <ImageView
+            android:layout_width="25dp"
+            android:background="@android:color/white"
+            android:layout_height="fill_parent"
+            android:id="@+id/imageView"/>
     <fragment
-        android:id="@+id/feedDetailFrag"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        class="org.codexplosion.rs3.FeedItemDetailFragment" />
+            android:id="@+id/feedDetailFrag"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="org.codexplosion.rs3.FeedItemDetailFragment"/>
 
 </LinearLayout>

@@ -25,6 +25,7 @@ public class LoginActivity extends Activity {
                 startActivity(intent);
             }
         });
+        getActionBar().hide();
     }
 
     @Override

@@ -1,5 +1,6 @@
 package org.codexplosion.rs3;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,12 +17,13 @@ public class DetailActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         FeedItemDetailFragment frag = (FeedItemDetailFragment) getFragmentManager().findFragmentById(R.id.feedDetailFrag);
-        ListView listView = frag.getListView();
+        final ListView listView = frag.getListView();
         listView.setBackgroundColor(getResources().getColor(R.color.white));
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             Log.d("debug", "updating fragment");
             Feed feed = (Feed) bundle.get(FeedFragment.FEED);
+            setTitle(feed.title);
             frag.updateItems(feed);
         }
 
@@ -29,10 +31,17 @@ public class DetailActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(DetailActivity.this, WebViewActivity.class);
-                intent.putExtra("URL", "http://www.google.com");
+                Item item = (Item) listView.getItemAtPosition(i);
+                intent.putExtra("URL", item.link);
                 startActivity(intent);
             }
         });
+
+        ActionBar ab = getActionBar();
+        ab.setBackgroundDrawable(getResources().getDrawable(R.drawable.action_bar_gradient));
+        ab.setCustomView(R.layout.rs3_action_bar);
+        ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM
+                | ActionBar.DISPLAY_SHOW_HOME);
     }
 
     @Override

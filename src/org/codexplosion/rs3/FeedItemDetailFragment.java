@@ -1,10 +1,12 @@
 package org.codexplosion.rs3;
 
 import android.app.ListFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,5 +42,24 @@ public class FeedItemDetailFragment extends ListFragment {
     public void setItems(List<Item> items) {
         this.items.clear();
         this.items.addAll(items);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                adapter.notifyDataSetChanged();
+                Intent intent = new Intent(getActivity(),
+                        WebViewActivity.class);
+                Bundle bundle = new Bundle();
+                Item item = (Item) getListView().getItemAtPosition(i);
+                bundle.putSerializable("URL", item.link);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                return;
+            }
+        });
     }
 }

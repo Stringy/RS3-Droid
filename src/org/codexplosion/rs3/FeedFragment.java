@@ -36,28 +36,17 @@ public class FeedFragment extends ListFragment {
         List<Feed> feeds = new ArrayList<Feed>();
         List<Item> items = new ArrayList<Item>();
 
-        items.add(new Item("Feed 1 Item 1", "Item Content", "Item Link", null,
-                "", false));
-        items.add(new Item("Feed 1 Item 2", "Item Content", "Item Link", null,
-                "", false));
-        items.add(new Item("Feed 1 Item 3", "Item Content", "Item Link", null,
-                "", false));
-        items.add(new Item("Feed 1 Item 4", "Item Content", "Item Link", null,
-                "", false));
+        items.add(new Item("MPs challenge Google over UK tax",
+                "MPs challenge Google over reporting of income for UK tax, " +
+                        "but the internet giant says there are no transactions executed in Britain.",
+                "http://www.bbc.co.uk/news/business-22551401#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
+                null, "", false));
 
-        feeds.add(new Feed("Feed One", "Feed Description", "Feed Link", items));
-
-        items = new ArrayList<Item>();
-        items.add(new Item("Feed 2 Item 1", "Item Content", "Item Link", null,
-                "", false));
-        items.add(new Item("Feed 2 Item 2", "Item Content", "Item Link", null,
-                "", false));
-        items.add(new Item("Feed 2 Item 3", "Item Content", "Item Link", null,
-                "", false));
-        items.add(new Item("Feed 2 Item 4", "Item Content", "Item Link", null,
-                "", false));
-
-        feeds.add(new Feed("Feed Two", "Feed Description", "Feed Link", items));
+        feeds.add(new Feed(
+                "BBC News",
+                "News from around the world",
+                "http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/uk/rss.xml",
+                items));
 
         return feeds;
     }

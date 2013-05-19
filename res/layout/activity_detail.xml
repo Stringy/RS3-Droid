@@ -1,13 +1,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DetailActivity" >
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                tools:context=".DetailActivity">
 
-    <fragment 
-        android:id="@+id/feedDetailFrag"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        class="org.codexplosion.rs3.FeedItemDetailFragment"/>
+    <fragment
+            android:id="@+id/feedDetailFrag"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            class="org.codexplosion.rs3.FeedItemDetailFragment"/>
 
 </RelativeLayout>
