@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import org.codexplosion.rs3.model.Feed;
+import org.codexplosion.rs3.model.Item;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,13 +26,15 @@ public class FeedItemDetailFragment extends ListFragment {
                 container, false);
         adapter = new FeedItemAdapter(getActivity()
                 .getApplicationContext(), R.layout.feed_item_list, items);
-        if (savedInstanceState != null) {
-            Feed feed = (Feed) savedInstanceState.get(FeedFragment.FEED);
+        Bundle bundle = getActivity().getIntent().getExtras();
+        if (bundle != null) {
+            Feed feed = (Feed) bundle.getSerializable(FeedFragment.FEED);
             if (feed != null) {
                 setItems(feed.getItems());
             }
         }
         setListAdapter(adapter);
+        adapter.notifyDataSetChanged();
         return view;
     }
 

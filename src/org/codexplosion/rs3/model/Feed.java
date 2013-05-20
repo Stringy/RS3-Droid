@@ -1,4 +1,4 @@
-package org.codexplosion.rs3;
+package org.codexplosion.rs3.model;
 
 import java.io.Serializable;
 import java.util.List;

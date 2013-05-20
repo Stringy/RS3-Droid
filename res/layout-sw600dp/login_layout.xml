@@ -54,5 +54,28 @@
             android:layout_toRightOf="@+id/rs3Title"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_launcher"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_unsuccessful"
+            android:id="@+id/login_unsuccessful"
+            android:textColor="@color/red"
+            android:layout_below="@+id/loginButton"
+            android:layout_centerHorizontal="true"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_or_pass"
+            android:id="@+id/user_or_pass"
+            android:textColor="@color/red"
+            android:layout_below="@+id/login_unsuccessful"
+            android:layout_centerHorizontal="true"/>
+    <ProgressBar
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            android:layout_below="@+id/user_or_pass"
+            android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

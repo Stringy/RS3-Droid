@@ -3,9 +3,10 @@ package org.codexplosion.rs3;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
+import org.codexplosion.rs3.model.Feed;
 
 import java.util.List;
 
@@ -22,6 +23,13 @@ public class FeedsActivity extends Activity {
         ab.setCustomView(R.layout.rs3_action_bar);
         ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM
                 | ActionBar.DISPLAY_SHOW_HOME);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.activity_main, menu);
+        return true;
     }
     
     @Override

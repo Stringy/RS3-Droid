@@ -11,6 +11,8 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import org.codexplosion.rs3.model.Feed;
+import org.codexplosion.rs3.model.Item;
 
 public class DetailActivity extends Activity {
 

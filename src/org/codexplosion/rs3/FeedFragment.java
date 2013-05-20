@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import org.codexplosion.rs3.model.Feed;
+import org.codexplosion.rs3.model.User;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,6 +21,7 @@ public class FeedFragment extends ListFragment {
 
     private List<Feed> feeds = new ArrayList<Feed>();
     private FeedAdapter adapter;
+    private User user = new User();
 
     public static String FEED = "feed";
 
@@ -26,7 +29,7 @@ public class FeedFragment extends ListFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_feeds, container, false);
-        feeds = retrieveFeeds();
+        feeds = user.getFeeds();
         adapter = new FeedAdapter(getActivity()
                 .getApplicationContext(), R.layout.feed_list_layout, feeds);
         setListAdapter(adapter);
@@ -34,49 +37,6 @@ public class FeedFragment extends ListFragment {
     }
 
     public List<Feed> getFeeds() {
-        return feeds;
-    }
-
-    private List<Feed> retrieveFeeds() {
-        List<Feed> feeds = new ArrayList<Feed>();
-        List<Item> items = new ArrayList<Item>();
-
-        items.add(new Item("MPs challenge Google over UK tax",
-                "MPs challenge Google over reporting of income for UK tax, " +
-                        "but the internet giant says there are no transactions executed in Britain.",
-                "http://www.bbc.co.uk/news/business-22551401#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
-                null, "", false));
-
-        items.add(new Item("MPs challenge Google over UK tax",
-                "MPs challenge Google over reporting of income for UK tax, " +
-                        "but the internet giant says there are no transactions executed in Britain.",
-                "http://www.bbc.co.uk/news/business-22551401#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
-                null, "", false));
-
-        items.add(new Item("MPs challenge Google over UK tax",
-                "MPs challenge Google over reporting of income for UK tax, " +
-                        "but the internet giant says there are no transactions executed in Britain.",
-                "http://www.bbc.co.uk/news/business-22551401#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
-                null, "", false));
-
-        items.add(new Item("MPs challenge Google over UK tax",
-                "MPs challenge Google over reporting of income for UK tax, " +
-                        "but the internet giant says there are no transactions executed in Britain.",
-                "http://www.bbc.co.uk/news/business-22551401#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
-                null, "", false));
-
-        items.add(new Item("MPs challenge Google over UK tax",
-                "MPs challenge Google over reporting of income for UK tax, " +
-                        "but the internet giant says there are no transactions executed in Britain.",
-                "http://www.bbc.co.uk/news/business-22551401#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
-                null, "", false));
-
-        feeds.add(new Feed(
-                "BBC News",
-                "News from around the world",
-                "http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/uk/rss.xml",
-                items));
-
         return feeds;
     }
 
