@@ -24,6 +24,7 @@ public class FeedFragment extends ListFragment {
     private User user = new User();
 
     public static String FEED = "feed";
+    public static String FEED_INDEX = "feed_index";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,6 +39,17 @@ public class FeedFragment extends ListFragment {
 
     public List<Feed> getFeeds() {
         return feeds;
+    }
+
+    @Override
+    public void onActivityResult(int response, int result, Intent data) {
+        super.onActivityResult(response, result, data);
+        Feed feed = (Feed) data.getSerializableExtra(FEED);
+        int index = (int) data.getIntExtra(FEED_INDEX, -1);
+        if(index > -1) {
+            user.updateFeed(index, feed);
+        }
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -61,8 +73,9 @@ public class FeedFragment extends ListFragment {
                     Bundle bundle = new Bundle();
                     bundle.putSerializable(FEED, (Feed) getListView()
                             .getItemAtPosition(arg2));
+                    bundle.putInt(FEED_INDEX, arg2);
                     intent.putExtras(bundle);
-                    startActivity(intent);
+                    startActivityForResult(intent, 0);
                     return;
                 } else {
 
@@ -70,7 +83,7 @@ public class FeedFragment extends ListFragment {
                             .findFragmentById(R.id.feedDetailFrag);
                     if (frag != null) {
                         Log.d("debug", "Attempting to update current fragment");
-                        frag.updateItems((Feed) getListView()
+                        frag.setItems((Feed) getListView()
                                 .getItemAtPosition(arg2));
                     } else {
                         FeedItemDetailFragment newFrag = new FeedItemDetailFragment();

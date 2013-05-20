@@ -64,4 +64,8 @@ public class Feed implements Serializable {
         }
         return unreadCount;
     }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
 }

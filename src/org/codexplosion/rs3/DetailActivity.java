@@ -47,7 +47,7 @@ public class DetailActivity extends Activity {
             feed = (Feed) bundle.get(FeedFragment.FEED);
             TextView actionTitle = (TextView) findViewById(R.id.actionBarTitle);
             actionTitle.setText(feed.getTitle());
-            frag.updateItems(feed);
+            frag.setItems(feed);
         }
     }
 
@@ -75,4 +75,14 @@ public class DetailActivity extends Activity {
         return true;
     }
 
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        Intent intent = getIntent();
+        FeedItemDetailFragment frag = (FeedItemDetailFragment)
+                                       getFragmentManager().findFragmentById(R.id.feedDetailFrag);
+        intent.putExtra(FeedFragment.FEED, frag.getFeed());
+        setResult(RESULT_OK, intent);
+        finish();
+    }
 }

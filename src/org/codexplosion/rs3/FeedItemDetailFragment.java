@@ -15,37 +15,38 @@ import java.util.List;
 
 public class FeedItemDetailFragment extends ListFragment {
 
-    List<Item> items = new ArrayList<Item>();
-    FeedItemAdapter adapter;
-
+    private List<Item> items = new ArrayList<Item>();
+    private Feed feed;
+    private FeedItemAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_feed_item_detail,
                 container, false);
-        adapter = new FeedItemAdapter(getActivity()
-                .getApplicationContext(), R.layout.feed_item_list, items);
         Bundle bundle = getActivity().getIntent().getExtras();
         if (bundle != null) {
-            Feed feed = (Feed) bundle.getSerializable(FeedFragment.FEED);
+            feed = (Feed) bundle.getSerializable(FeedFragment.FEED);
             if (feed != null) {
-                setItems(feed.getItems());
+                this.items = feed.getItems();
             }
         }
+        adapter = new FeedItemAdapter(getActivity()
+                .getApplicationContext(), R.layout.feed_item_list, items);
         setListAdapter(adapter);
         adapter.notifyDataSetChanged();
         return view;
     }
 
-    public void updateItems(Feed feed) {
-        setItems(feed.getItems());
+    public void updateFeed() {
+        feed.setItems(items);
         adapter.notifyDataSetChanged();
     }
 
-    public void setItems(List<Item> items) {
+    public void setItems(Feed feed) {
         this.items.clear();
-        this.items.addAll(items);
+        this.items.addAll(feed.getItems());
+        this.feed = feed;
     }
 
     @Override
@@ -65,5 +66,9 @@ public class FeedItemDetailFragment extends ListFragment {
                 startActivity(intent);
             }
         });
+    }
+
+    public Feed getFeed() {
+        return this.feed;
     }
 }

@@ -80,4 +80,8 @@ public class FeedItemAdapter extends ArrayAdapter<Item> {
         }
         return view;
     }
+
+    public List<Item> getObjects() {
+        return objects;
+    }
 }

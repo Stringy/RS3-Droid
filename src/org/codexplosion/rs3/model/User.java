@@ -57,4 +57,8 @@ public class User {
     public List<Feed> getFeeds() {
         return feeds;
     }
+
+    public void updateFeed(int i, Feed feed) {
+        feeds.set(i, feed);
+    }
 }

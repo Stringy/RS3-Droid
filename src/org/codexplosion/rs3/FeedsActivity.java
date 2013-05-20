@@ -2,6 +2,7 @@ package org.codexplosion.rs3;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.ImageView;
@@ -31,7 +32,12 @@ public class FeedsActivity extends Activity {
         getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
     }
-    
+
+    @Override
+    public void onActivityResult(int response, int result, Intent data) {
+        super.onActivityResult(response, result, data);
+    }
+
     @Override
     public void onResume() {
     	super.onResume();
